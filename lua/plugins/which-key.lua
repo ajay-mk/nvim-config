@@ -17,6 +17,7 @@ return {
       { "<leader>f", group = "find/file" },
       { "<leader>g", group = "git" },
       { "<leader>h", group = "hunk" },
+      { "<leader>t", group = "terminal" },
     },
   },
 }
