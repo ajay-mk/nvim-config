@@ -7,11 +7,10 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    -- Clangd setup for C/C++
-    lspconfig.clangd.setup({
+    -- Clangd setup for C/C++ using new vim.lsp.config API (Neovim 0.11+)
+    vim.lsp.config("clangd", {
       capabilities = capabilities,
       cmd = {
         "clangd",
@@ -28,6 +27,7 @@ return {
         clangdFileStatus = true,
       },
     })
+    vim.lsp.enable("clangd")
 
     -- LSP keymaps (set on attach)
     vim.api.nvim_create_autocmd("LspAttach", {

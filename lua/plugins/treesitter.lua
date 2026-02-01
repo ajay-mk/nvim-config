@@ -6,6 +6,7 @@ return {
     ensure_installed = {
       "c",
       "cpp",
+      "cuda",
       "cmake",
       "lua",
       "vim",

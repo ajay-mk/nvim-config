@@ -20,6 +20,17 @@
 | `<leader>bp` | Pin buffer |
 | `<leader>bP` | Close unpinned buffers |
 
+## Terminal
+
+| Keybinding | Action |
+|------------|--------|
+| `<C-\>` | Toggle floating terminal |
+| `<leader>tf` | Floating terminal |
+| `<leader>th` | Horizontal terminal (bottom) |
+| `<leader>tv` | Vertical terminal (side) |
+
+**Inside terminal**: Press `<C-\>` again to close, or `<C-\><C-n>` to exit terminal mode.
+
 ## Window Navigation
 
 | Keybinding | Action |
