@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup
 -- Format C++ files on save using LSP (clang-format via clangd)
 autocmd("BufWritePre", {
   group = augroup("FormatOnSave", { clear = true }),
-  pattern = { "*.cpp", "*.hpp", "*.c", "*.h", "*.cc", "*.cxx" },
+  pattern = { "*.cpp", "*.hpp", ".ipp", "*.c", "*.h", "*.cc", "*.cxx" },
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
