@@ -1,15 +1,58 @@
 return {
+  -- Neogit: Magit-style Git interface
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit (Git GUI)" },
+      { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Git Commit" },
+      { "<leader>gp", "<cmd>Neogit push<cr>", desc = "Git Push" },
+      { "<leader>gP", "<cmd>Neogit pull<cr>", desc = "Git Pull" },
+      { "<leader>gl", "<cmd>Neogit log<cr>", desc = "Git Log" },
+      { "<leader>gb", "<cmd>Neogit branch<cr>", desc = "Git Branch" },
+    },
+    opts = {
+      integrations = {
+        diffview = true,
+        telescope = true,
+      },
+      signs = {
+        section = { "", "" },
+        item = { "", "" },
+      },
+    },
+  },
+  -- Diffview: Visual diffs and merge conflict resolution
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diff View" },
+      { "<leader>gD", "<cmd>DiffviewOpen HEAD~1<cr>", desc = "Diff vs Last Commit" },
+      { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "File History" },
+      { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "Branch History" },
+      { "<leader>gq", "<cmd>DiffviewClose<cr>", desc = "Close Diff View" },
+    },
+    opts = {
+      enhanced_diff_hl = true,
+      view = {
+        merge_tool = {
+          layout = "diff3_mixed",
+        },
+      },
+    },
+  },
+  -- Fugitive: Keep for :Git blame and quick commands
   {
     "tpope/vim-fugitive",
     cmd = { "Git", "G", "Gdiffsplit", "Gvdiffsplit", "Gread", "Gwrite" },
     keys = {
-      { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
-      { "<leader>gc", "<cmd>Git commit<cr>", desc = "Git Commit" },
-      { "<leader>gp", "<cmd>Git push<cr>", desc = "Git Push" },
-      { "<leader>gP", "<cmd>Git pull<cr>", desc = "Git Pull" },
-      { "<leader>gl", "<cmd>Git log --oneline<cr>", desc = "Git Log" },
-      { "<leader>gd", "<cmd>Gdiffsplit<cr>", desc = "Git Diff" },
-      { "<leader>gb", "<cmd>Git blame<cr>", desc = "Git Blame" },
+      { "<leader>gB", "<cmd>Git blame<cr>", desc = "Git Blame (Fugitive)" },
     },
   },
   {
