@@ -1,6 +1,6 @@
 return {
   "Civitasv/cmake-tools.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" },
   cmd = {
     "CMakeGenerate",
     "CMakeBuild",
@@ -28,6 +28,22 @@ return {
     cmake_build_options = {},
     cmake_console_size = 10,
     cmake_show_console = "always",
+    cmake_executor = {
+      name = "toggleterm",
+      opts = {
+        direction = "horizontal",
+        close_on_exit = false,
+        auto_scroll = true,
+      },
+    },
+    cmake_runner = {
+      name = "toggleterm",
+      opts = {
+        direction = "horizontal",
+        close_on_exit = false,
+        auto_scroll = true,
+      },
+    },
     cmake_dap_configuration = {
       name = "cpp",
       type = "lldb",
