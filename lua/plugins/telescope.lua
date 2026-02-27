@@ -12,6 +12,7 @@ return {
     { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
     { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
     { "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
   },
   opts = {
     defaults = {
