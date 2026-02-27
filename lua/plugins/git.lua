@@ -47,14 +47,6 @@ return {
       },
     },
   },
-  -- Fugitive: Keep for :Git blame and quick commands
-  {
-    "tpope/vim-fugitive",
-    cmd = { "Git", "G", "Gdiffsplit", "Gvdiffsplit", "Gread", "Gwrite" },
-    keys = {
-      { "<leader>gB", "<cmd>Git blame<cr>", desc = "Git Blame (Fugitive)" },
-    },
-  },
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },

@@ -44,7 +44,7 @@ autocmd("BufReadPost", {
 -- Close certain filetypes with q
 autocmd("FileType", {
   group = augroup("CloseWithQ", { clear = true }),
-  pattern = { "help", "lspinfo", "qf", "checkhealth", "fugitive", "notify", "man", "git" },
+  pattern = { "help", "lspinfo", "qf", "checkhealth", "notify", "man", "git" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
