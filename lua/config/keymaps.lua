@@ -9,6 +9,13 @@ map("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
+-- Terminal-mode window navigation
+map("t", "<C-h>", [[<C-\><C-n><C-w>h]], { desc = "Move to left window" })
+map("t", "<C-j>", [[<C-\><C-n><C-w>j]], { desc = "Move to lower window" })
+map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { desc = "Move to upper window" })
+map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { desc = "Move to right window" })
+map("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
 -- Window resizing
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
