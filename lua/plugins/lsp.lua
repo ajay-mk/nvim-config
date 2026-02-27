@@ -33,18 +33,29 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
       callback = function(args)
-        local opts = { buffer = args.buf }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
+        local function map(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, desc = desc })
+        end
+
+        -- Navigation
+        map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+        map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+        map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+        map("n", "gr", vim.lsp.buf.references, "Show references")
+        map("n", "<leader>D", vim.lsp.buf.type_definition, "Type definition")
+
+        -- Info
+        map("n", "K", vim.lsp.buf.hover, "Hover documentation")
+        map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature help")
+
+        -- Actions
+        map("n", "<leader>la", vim.lsp.buf.code_action, "Code action")
+        map("n", "<leader>lr", vim.lsp.buf.rename, "Rename symbol")
+        map("n", "<leader>lf", function() vim.lsp.buf.format({ async = false }) end, "Format buffer")
+
+        -- Diagnostics
+        map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, "Previous diagnostic")
+        map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic")
       end,
     })
 
