@@ -5,8 +5,11 @@ local augroup = vim.api.nvim_create_augroup
 autocmd("BufWritePre", {
   group = augroup("FormatOnSave", { clear = true }),
   pattern = { "*.cpp", "*.hpp", "*.ipp", "*.c", "*.h", "*.cc", "*.cxx" },
-  callback = function()
-    vim.lsp.buf.format({ async = false })
+  callback = function(args)
+    local clients = vim.lsp.get_clients({ bufnr = args.buf, method = "textDocument/formatting" })
+    if #clients > 0 then
+      vim.lsp.buf.format({ async = false, filter = function(client) return client.name == "clangd" end })
+    end
   end,
 })
 
@@ -41,7 +44,7 @@ autocmd("BufReadPost", {
 -- Close certain filetypes with q
 autocmd("FileType", {
   group = augroup("CloseWithQ", { clear = true }),
-  pattern = { "help", "lspinfo", "qf", "checkhealth", "fugitive" },
+  pattern = { "help", "lspinfo", "qf", "checkhealth", "fugitive", "notify", "man", "git" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
