@@ -10,6 +10,11 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 
+-- Folding (treesitter-based)
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevelstart = 99 -- start with all folds open
+
 -- Line wrapping
 opt.wrap = false
 
