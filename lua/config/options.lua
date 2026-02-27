@@ -8,7 +8,6 @@ opt.relativenumber = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
-opt.autoindent = true
 opt.smartindent = true
 
 -- Line wrapping
@@ -18,7 +17,6 @@ opt.wrap = false
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
-opt.incsearch = true
 
 -- Appearance
 opt.termguicolors = true

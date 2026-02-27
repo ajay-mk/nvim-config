@@ -1,7 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    cmd = "Mason",
     build = ":MasonUpdate",
     opts = {
       ui = {
@@ -21,7 +20,7 @@ return {
       ensure_installed = {
         "clangd",
       },
-      automatic_installation = true,
+
     },
   },
 }
