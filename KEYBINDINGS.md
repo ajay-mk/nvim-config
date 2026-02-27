@@ -29,7 +29,16 @@
 | `<leader>th` | Horizontal terminal (bottom) |
 | `<leader>tv` | Vertical terminal (side) |
 
-**Inside terminal**: Press `<C-\>` again to close, or `<C-\><C-n>` to exit terminal mode.
+**Inside terminal:**
+
+| Keybinding | Action |
+|------------|--------|
+| `<C-\>` | Close terminal |
+| `<Esc><Esc>` | Exit terminal mode |
+| `<C-h>` | Move to left window |
+| `<C-j>` | Move to lower window |
+| `<C-k>` | Move to upper window |
+| `<C-l>` | Move to right window |
 
 ## Window Navigation
 
@@ -67,19 +76,22 @@
 
 ## LSP
 
-| Keybinding | Action |
-|------------|--------|
-| `gd` | Go to definition |
-| `gD` | Go to declaration |
-| `gi` | Go to implementation |
-| `gr` | Find references |
-| `K` | Hover documentation |
-| `<C-k>` | Signature help |
-| `<leader>ca` | Code action |
-| `<leader>rn` | Rename symbol |
-| `<leader>D` | Type definition |
-| `[d` | Previous diagnostic |
-| `]d` | Next diagnostic |
+| Keybinding | Mode | Action |
+|------------|------|--------|
+| `gd` | Normal | Go to definition |
+| `gD` | Normal | Go to declaration |
+| `gi` | Normal | Go to implementation |
+| `gr` | Normal | Show references |
+| `K` | Normal | Hover documentation |
+| `<C-k>` | Insert | Signature help |
+| `<leader>la` | Normal | Code action |
+| `<leader>lr` | Normal | Rename symbol |
+| `<leader>lf` | Normal | Format buffer |
+| `<leader>li` | Normal | Toggle inlay hints |
+| `<leader>ls` | Normal | Switch source/header (clangd) |
+| `<leader>D` | Normal | Type definition |
+| `[d` | Normal | Previous diagnostic |
+| `]d` | Normal | Next diagnostic |
 
 ## Telescope (Fuzzy Finder)
 
@@ -94,6 +106,7 @@
 | `<leader>fS` | Workspace symbols |
 | `<leader>fd` | Diagnostics |
 | `<leader>fc` | Git commits |
+| `<leader>fk` | Keymaps |
 
 **Inside Telescope:**
 | Keybinding | Action |
@@ -130,17 +143,26 @@
 | `<leader>cl` | Select launch target |
 | `<leader>cc` | CMake clean |
 
-## Git (Fugitive)
+## Git (Neogit)
 
 | Keybinding | Action |
 |------------|--------|
-| `<leader>gs` | Git status |
+| `<leader>gg` | Neogit (Git GUI) |
 | `<leader>gc` | Git commit |
 | `<leader>gp` | Git push |
 | `<leader>gP` | Git pull |
 | `<leader>gl` | Git log |
-| `<leader>gd` | Git diff |
-| `<leader>gb` | Git blame |
+| `<leader>gb` | Git branch |
+
+## Diffview
+
+| Keybinding | Action |
+|------------|--------|
+| `<leader>gd` | Git diff view |
+| `<leader>gD` | Diff vs last commit |
+| `<leader>gh` | File history |
+| `<leader>gH` | Branch history |
+| `<leader>gq` | Close diff view |
 
 ## Git Hunks (Gitsigns)
 
