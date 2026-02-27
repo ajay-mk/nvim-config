@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git -C /Users/ajay/.config/nvim add init.lua KEYBINDINGS.md lua/)",
-      "Bash(git -C /Users/ajay/.config/nvim commit -m \"$\\(cat <<''EOF''\nInitial Neovim config for C++/CMake development\n\nIncludes lazy.nvim plugin manager with:\n- LSP \\(clangd via mason\\)\n- Autocompletion \\(nvim-cmp + LuaSnip\\)\n- Debugging \\(nvim-dap + dap-ui\\)\n- Fuzzy finder \\(telescope\\)\n- File explorer \\(neo-tree\\)\n- Git integration \\(fugitive + gitsigns\\)\n- CMake tools\n- Treesitter syntax highlighting\n- UI: lualine, bufferline, tokyonight theme\n- which-key for keybinding hints\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
-    ]
-  }
-}
