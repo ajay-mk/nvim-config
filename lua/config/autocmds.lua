@@ -1,52 +1,40 @@
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
+local augroup = function(name)
+  return vim.api.nvim_create_augroup("User" .. name, { clear = true })
+end
 
--- Format C++ files on save using LSP (clang-format via clangd)
-autocmd("BufWritePre", {
-  group = augroup("FormatOnSave", { clear = true }),
-  pattern = { "*.cpp", "*.hpp", "*.ipp", "*.c", "*.h", "*.cc", "*.cxx" },
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup("HighlightYank"),
+  callback = function()
+    vim.hl.on_yank({ timeout = 150 })
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("CloseWithQ"),
+  pattern = { "help", "qf", "man", "lspinfo", "checkhealth", "fugitive", "fugitiveblame" },
   callback = function(args)
-    local clients = vim.lsp.get_clients({ bufnr = args.buf, method = "textDocument/formatting" })
-    if #clients > 0 then
-      vim.lsp.buf.format({ async = false, filter = function(client) return client.name == "clangd" end })
-    end
+    vim.bo[args.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = args.buf, silent = true })
   end,
 })
 
--- Highlight on yank
-autocmd("TextYankPost", {
-  group = augroup("HighlightYank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank({ timeout = 200 })
-  end,
-})
-
--- Auto-resize splits on window resize
-autocmd("VimResized", {
-  group = augroup("ResizeSplits", { clear = true }),
-  callback = function()
-    vim.cmd("tabdo wincmd =")
-  end,
-})
-
--- Return to last edit position when opening files
-autocmd("BufReadPost", {
-  group = augroup("LastPosition", { clear = true }),
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup("LastCursor"),
+  callback = function(args)
+    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+    local line_count = vim.api.nvim_buf_line_count(args.buf)
+    if mark[1] > 0 and mark[1] <= line_count then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
 
--- Close certain filetypes with q
-autocmd("FileType", {
-  group = augroup("CloseWithQ", { clear = true }),
-  pattern = { "help", "lspinfo", "qf", "checkhealth", "notify", "man", "git" },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup("FormatOnSave"),
+  pattern = { "*.c", "*.cc", "*.cpp", "*.cxx", "*.h", "*.hh", "*.hpp", "*.ipp" },
+  callback = function(args)
+    if next(vim.lsp.get_clients({ bufnr = args.buf })) then
+      vim.lsp.buf.format({ async = false, timeout_ms = 2000 })
+    end
   end,
 })
