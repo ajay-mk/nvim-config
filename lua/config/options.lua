@@ -1,59 +1,55 @@
 local opt = vim.opt
 
--- Line numbers
 opt.number = true
 opt.relativenumber = true
+opt.mouse = "a"
 
--- Tabs & indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 
--- Folding (treesitter-based)
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldlevelstart = 99 -- start with all folds open
-
--- Line wrapping
 opt.wrap = false
 
--- Search settings
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
+opt.incsearch = true
 
--- Appearance
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
+opt.splitkeep = "screen"
 
--- Split behavior
 opt.splitright = true
 opt.splitbelow = true
 
--- Clipboard
 opt.clipboard = "unnamedplus"
 
--- Backspace
-opt.backspace = "indent,eol,start"
+opt.backspace = { "indent", "eol", "start" }
 
--- Undo persistence
 opt.undofile = true
 opt.undolevels = 10000
 
--- Faster update time
 opt.updatetime = 250
-opt.timeoutlen = 300
+opt.timeoutlen = 400
 
--- Completion
-opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menu,menuone,noselect,popup"
+opt.autocomplete = true
+opt.autocompletedelay = 80
+opt.pumheight = 12
 
--- Don't show mode (statusline shows it)
 opt.showmode = false
+opt.laststatus = 3
 
--- Better file handling
 opt.swapfile = false
 opt.backup = false
+opt.confirm = true
+opt.inccommand = "split"
+opt.shortmess:append("c")
+
+if vim.fn.has("nvim-0.12") == 1 then
+  opt.winborder = "rounded"
+end

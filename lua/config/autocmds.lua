@@ -1,19 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
--- Format C++ files on save using LSP (clang-format via clangd)
-autocmd("BufWritePre", {
-  group = augroup("FormatOnSave", { clear = true }),
-  pattern = { "*.cpp", "*.hpp", "*.ipp", "*.c", "*.h", "*.cc", "*.cxx" },
-  callback = function(args)
-    local clients = vim.lsp.get_clients({ bufnr = args.buf, method = "textDocument/formatting" })
-    if #clients > 0 then
-      vim.lsp.buf.format({ async = false, filter = function(client) return client.name == "clangd" end })
-    end
-  end,
-})
-
--- Highlight on yank
 autocmd("TextYankPost", {
   group = augroup("HighlightYank", { clear = true }),
   callback = function()
@@ -41,10 +28,9 @@ autocmd("BufReadPost", {
   end,
 })
 
--- Close certain filetypes with q
 autocmd("FileType", {
   group = augroup("CloseWithQ", { clear = true }),
-  pattern = { "help", "lspinfo", "qf", "checkhealth", "notify", "man", "git" },
+  pattern = { "checkhealth", "git", "help", "lspinfo", "man", "notify", "qf", "query" },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
