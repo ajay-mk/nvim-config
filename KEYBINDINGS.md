@@ -13,6 +13,18 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `<leader>e` | Toggle file tree sidebar (nvim-tree) |
 | `<leader>fe` | Reveal current file in the tree |
 
+## Buffers / Tabs (bufferline)
+
+| Key | Action |
+|---|---|
+| `<S-l>` | Next buffer |
+| `<S-h>` | Prev buffer |
+| `<leader>bn` | New empty buffer |
+| `<leader>bd` | Close current buffer |
+| `<leader>bD` | Close all other buffers |
+| `<leader>bp` | Pin / unpin current buffer |
+| `<leader>fb` | Fuzzy buffer picker (fzf-lua) |
+
 ## Window / Terminal
 
 | Key | Action |
@@ -44,6 +56,7 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `<leader>fd` | Document diagnostics |
 | `<leader>fD` | Workspace diagnostics |
 | `<leader>fR` | Resume last picker |
+| `<leader>uc` | Colorscheme picker (live preview) |
 
 ## LSP (buffer-local, on attach)
 
@@ -60,7 +73,8 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `K` | Hover |
 | `<C-s>` | Signature help (insert mode, native default) |
 | `<leader>ch` | Clangd: switch source/header |
-| `<leader>cf` | Format buffer |
+| `<leader>cf` | Format buffer (clangd, or skipped when pre-commit clang-format owns the project) |
+| `<leader>cF` | Run all pre-commit hooks on the current file |
 | `<leader>cr` | Rename |
 | `<leader>ca` | Code action |
 | `<leader>ti` | Toggle inlay hints |
@@ -77,17 +91,15 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `<leader>hd` | Diff this |
 | `<leader>ht` | Toggle current-line blame |
 
-## Git (`<leader>g` — fugitive)
+## Git (`<leader>g` — lazygit + snacks)
 
 | Key | Action |
 |---|---|
-| `<leader>gs` | `:Git` status window |
-| `<leader>gc` | `:Git commit` |
-| `<leader>gd` | `:Gdiffsplit` |
-| `<leader>gl` | `:Git log --oneline` |
-| `<leader>gB` | `:Git blame` (buffer) |
-| `<leader>gp` | `:Git pull` |
-| `<leader>gP` | `:Git push` |
+| `<leader>gg` | Lazygit (full UI in floating window) |
+| `<leader>gl` | Lazygit log (whole repo) |
+| `<leader>gf` | Lazygit log (current file) |
+| `<leader>go` | Open current line / selection on GitHub (gitbrowse) |
+| `:GH <num>` | Open PR/issue number on GitHub (no arg = repo home) |
 
 ## Completion (blink.cmp, insert mode)
 

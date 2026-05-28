@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("CloseWithQ"),
-  pattern = { "help", "qf", "man", "lspinfo", "checkhealth", "fugitive", "fugitiveblame" },
+  pattern = { "help", "qf", "man", "lspinfo", "checkhealth" },
   callback = function(args)
     vim.bo[args.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = args.buf, silent = true })
@@ -33,6 +33,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup("FormatOnSave"),
   pattern = { "*.c", "*.cc", "*.cpp", "*.cxx", "*.h", "*.hh", "*.hpp", "*.ipp" },
   callback = function(args)
+    local precommit = require("config.precommit")
+    if precommit.has_clang_format(precommit.config_path(args.file)) then
+      return
+    end
     if next(vim.lsp.get_clients({ bufnr = args.buf })) then
       vim.lsp.buf.format({ async = false, timeout_ms = 2000 })
     end

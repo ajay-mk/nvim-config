@@ -4,13 +4,18 @@ end
 
 vim.pack.add({
   gh("doums/darcula"),
+  gh("navarasu/onedark.nvim"),
+  gh("catppuccin/nvim"),
+  gh("folke/tokyonight.nvim"),
+  gh("rebelot/kanagawa.nvim"),
   gh("nvim-lualine/lualine.nvim"),
+  gh("akinsho/bufferline.nvim"),
   gh("nvim-treesitter/nvim-treesitter"),
   gh("folke/which-key.nvim"),
   gh("ibhagwan/fzf-lua"),
   gh("nvim-tree/nvim-tree.lua"),
+  gh("folke/snacks.nvim"),
   gh("saghen/blink.lib"),
   gh("saghen/blink.cmp"),
   gh("lewis6991/gitsigns.nvim"),
-  gh("tpope/vim-fugitive"),
 }, { load = true, confirm = false })

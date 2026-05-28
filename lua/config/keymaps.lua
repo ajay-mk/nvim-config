@@ -23,3 +23,10 @@ map("n", "N", "Nzzzv", { desc = "Prev search (centered)" })
 
 map("v", "<", "<gv", { desc = "Outdent and reselect" })
 map("v", ">", ">gv", { desc = "Indent and reselect" })
+
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>bD", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close other buffers" })
+map("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "Pin/unpin buffer" })
+map("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New buffer" })

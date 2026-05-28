@@ -1,4 +1,19 @@
-vim.cmd.colorscheme("darcula")
+vim.cmd.colorscheme("catppuccin-mocha")
+
+require("bufferline").setup({
+  options = {
+    mode = "buffers",
+    numbers = "none",
+    diagnostics = "nvim_lsp",
+    show_buffer_close_icons = true,
+    show_close_icon = false,
+    separator_style = "thin",
+    always_show_bufferline = true,
+    offsets = {
+      { filetype = "NvimTree", text = "Files", text_align = "left", separator = true },
+    },
+  },
+})
 
 require("lualine").setup({
   options = {

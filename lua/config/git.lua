@@ -28,10 +28,17 @@ local map = function(lhs, rhs, desc)
   vim.keymap.set("n", lhs, rhs, { desc = desc })
 end
 
-map("<leader>gs", "<cmd>Git<cr>", "Git status")
-map("<leader>gc", "<cmd>Git commit<cr>", "Git commit")
-map("<leader>gd", "<cmd>Gdiffsplit<cr>", "Git diff (split)")
-map("<leader>gl", "<cmd>Git log --oneline<cr>", "Git log")
-map("<leader>gB", "<cmd>Git blame<cr>", "Git blame (buffer)")
-map("<leader>gp", "<cmd>Git pull<cr>", "Git pull")
-map("<leader>gP", "<cmd>Git push<cr>", "Git push")
+map("<leader>gg", function() Snacks.lazygit() end, "Lazygit (full UI)")
+map("<leader>gl", function() Snacks.lazygit.log() end, "Lazygit log (repo)")
+map("<leader>gf", function() Snacks.lazygit.log_file() end, "Lazygit log (current file)")
+map("<leader>go", function() Snacks.gitbrowse() end, "Open in browser (current line)")
+vim.keymap.set("v", "<leader>go", function() Snacks.gitbrowse() end, { desc = "Open in browser (selection)" })
+
+vim.api.nvim_create_user_command("GH", function(opts)
+  local args = { "gh", "browse" }
+  if opts.args ~= "" then table.insert(args, opts.args) end
+  vim.system(args)
+end, {
+  nargs = "?",
+  desc = "Open GH PR/issue number in browser (no arg = repo home)",
+})
