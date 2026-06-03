@@ -30,3 +30,13 @@ map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
 map("n", "<leader>bD", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close other buffers" })
 map("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "Pin/unpin buffer" })
 map("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New buffer" })
+
+map("n", "<leader>tt", function() Snacks.terminal.toggle() end, { desc = "Toggle terminal" })
+
+vim.api.nvim_create_user_command("Run", function(opts)
+  Snacks.terminal(opts.args)
+end, {
+  nargs = "+",
+  complete = "shellcmd",
+  desc = "Run shell command in floating terminal",
+})

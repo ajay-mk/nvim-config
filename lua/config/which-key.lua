@@ -11,6 +11,7 @@ wk.add({
   { "<leader>f", group = "Find" },
   { "<leader>g", group = "Git" },
   { "<leader>h", group = "Hunk" },
+  { "<leader>m", group = "Make / CMake" },
   { "<leader>t", group = "Toggle" },
   { "<leader>u", group = "UI" },
 })

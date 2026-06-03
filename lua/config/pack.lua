@@ -15,6 +15,8 @@ vim.pack.add({
   gh("ibhagwan/fzf-lua"),
   gh("nvim-tree/nvim-tree.lua"),
   gh("folke/snacks.nvim"),
+  gh("nvim-lua/plenary.nvim"),
+  gh("Civitasv/cmake-tools.nvim"),
   gh("saghen/blink.lib"),
   gh("saghen/blink.cmp"),
   gh("lewis6991/gitsigns.nvim"),

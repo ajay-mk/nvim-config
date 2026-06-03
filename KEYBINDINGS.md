@@ -13,6 +13,28 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `<leader>e` | Toggle file tree sidebar (nvim-tree) |
 | `<leader>fe` | Reveal current file in the tree |
 
+## Make / CMake (`<leader>m` — cmake-tools)
+
+| Key | Action |
+|---|---|
+| `<leader>mg` | Generate (configure project) |
+| `<leader>mb` | Build (last preset + target) |
+| `<leader>mr` | Run selected target |
+| `<leader>mt` | Run tests (`ctest`) |
+| `<leader>mp` | Pick preset from `CMakePresets.json` / `CMakeUserPresets.json` |
+| `<leader>mT` | Pick target from `CMakeLists.txt` |
+| `<leader>mc` | Clean build |
+| `<leader>ms` | Stop running build |
+| `<leader>mo` | Toggle build-output window |
+
+## Terminal / Run
+
+| Key / Command | Action |
+|---|---|
+| `<leader>tt` | Toggle floating scratch terminal (snacks) |
+| `:Run <cmd>` | Run any shell command in a floating terminal (e.g., `:Run cmake --build -p debug`) |
+| `<Esc>` (in term) | Exit terminal-insert mode |
+
 ## Buffers / Tabs (bufferline)
 
 | Key | Action |

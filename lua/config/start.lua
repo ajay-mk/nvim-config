@@ -15,6 +15,7 @@ require("snacks").setup({
   statuscolumn = { enabled = true },
   gitbrowse = { enabled = true },
   lazygit = { enabled = true },
+  terminal = { enabled = true },
   dashboard = {
     enabled = true,
     preset = {
