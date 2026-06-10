@@ -43,6 +43,8 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable({ "clangd", "lua_ls" })
 
+require("lspeek").setup({})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspAttach", { clear = true }),
   callback = function(args)
@@ -64,6 +66,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("gD", vim.lsp.buf.declaration, "Goto declaration")
     map("gi", function() require("fzf-lua").lsp_implementations({ jump1 = true }) end, "Goto implementation")
     map("gr", function() require("fzf-lua").lsp_references({ jump1 = false }) end, "References")
+    map("gp", function() require("lspeek").peek_definition() end, "Peek definition")
+    map("gP", function() require("lspeek").peek_type_definition() end, "Peek type definition")
     map("<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source/header")
     map("<leader>ti", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })

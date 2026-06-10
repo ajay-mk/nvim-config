@@ -20,4 +20,5 @@ vim.pack.add({
   gh("saghen/blink.lib"),
   gh("saghen/blink.cmp"),
   gh("lewis6991/gitsigns.nvim"),
+  gh("r4ppz/lspeek.nvim"),
 }, { load = true, confirm = false })

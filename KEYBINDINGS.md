@@ -88,6 +88,8 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `gD` | Goto declaration |
 | `gi` | Goto implementation (fzf-lua) |
 | `gr` | References (fzf-lua) |
+| `gp` | Peek definition (lspeek) |
+| `gP` | Peek type definition (lspeek) |
 | `grn` | Rename (native default) |
 | `gra` | Code action (native default) |
 | `gri` | Implementation (native default) |

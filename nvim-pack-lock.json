@@ -32,6 +32,10 @@
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
+    "lspeek.nvim": {
+      "rev": "d4bba417c27dc84a4ba9900256fd8eea3c8f18c0",
+      "src": "https://github.com/r4ppz/lspeek.nvim"
+    },
     "lualine.nvim": {
       "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
