@@ -8,6 +8,8 @@ vim.pack.add({
   gh("catppuccin/nvim"),
   gh("folke/tokyonight.nvim"),
   gh("rebelot/kanagawa.nvim"),
+  gh("ellisonleao/gruvbox.nvim"),
+  gh("jacoborus/tender.vim"),
   gh("nvim-lualine/lualine.nvim"),
   gh("akinsho/bufferline.nvim"),
   gh("nvim-treesitter/nvim-treesitter"),

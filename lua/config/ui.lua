@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("tender")
 
 require("bufferline").setup({
   options = {
