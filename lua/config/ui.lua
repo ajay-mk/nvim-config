@@ -1,4 +1,17 @@
-vim.cmd.colorscheme("tender")
+vim.cmd("colorscheme tender")
+
+local function set_comment_hl()
+  local hl = { fg = "#8a9a55" }
+  vim.api.nvim_set_hl(0, "Comment", hl)
+  vim.api.nvim_set_hl(0, "@comment", hl)
+  vim.api.nvim_set_hl(0, "@comment.line", hl)
+  vim.api.nvim_set_hl(0, "@comment.documentation", hl)
+  vim.api.nvim_set_hl(0, "@lsp.type.comment", hl)
+end
+
+set_comment_hl()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = set_comment_hl })
+
 
 require("bufferline").setup({
   options = {
