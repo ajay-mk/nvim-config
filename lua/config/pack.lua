@@ -23,4 +23,8 @@ vim.pack.add({
   gh("saghen/blink.cmp"),
   gh("lewis6991/gitsigns.nvim"),
   gh("r4ppz/lspeek.nvim"),
+  gh("mfussenegger/nvim-dap"),
+  gh("rcarriga/nvim-dap-ui"),
+  gh("nvim-neotest/nvim-nio"),
+  gh("theHamsta/nvim-dap-virtual-text"),
 }, { load = true, confirm = false })
