@@ -42,6 +42,7 @@ External tools expected on `$PATH`:
 - `fzf` — fuzzy finder backend
 - `lazygit` — git UI (optional)
 - `pre-commit` — if using the pre-commit integration
+- [`codelldb`](https://github.com/vadimcn/codelldb) — C/C++ debug adapter; download the `codelldb-darwin-arm64.vsix` release asset and extract it to `~/.local/share/nvim/codelldb/` (binary ends up at `extension/adapter/codelldb`)
 
 See [KEYBINDINGS.md](KEYBINDINGS.md) for the keymap reference.
 
