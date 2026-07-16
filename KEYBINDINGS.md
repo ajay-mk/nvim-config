@@ -27,6 +27,19 @@ Leader: `<Space>`. Built-in Neovim 0.11+ LSP defaults (`grn`/`gra`/`grr`/`gri`/`
 | `<leader>ms` | Stop running build |
 | `<leader>mo` | Toggle build-output window |
 
+## Debug (`<leader>d` — nvim-dap + codelldb)
+
+| Key | Action |
+|---|---|
+| `<leader>db` | Toggle breakpoint |
+| `<leader>dc` | Continue / start |
+| `<leader>do` | Step over |
+| `<leader>di` | Step into |
+| `<leader>dO` | Step out |
+| `<leader>dr` | Open REPL |
+| `<leader>du` | Toggle dap-ui |
+| `<leader>dt` | Terminate session |
+
 ## Terminal / Run
 
 | Key / Command | Action |
