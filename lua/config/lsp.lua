@@ -7,6 +7,7 @@ vim.diagnostic.config({
 })
 
 vim.lsp.config("clangd", {
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
   cmd = {
     "clangd",
     "--background-index",
@@ -31,6 +32,7 @@ vim.lsp.config("clangd", {
 })
 
 vim.lsp.config("lua_ls", {
+  filetypes = { "lua" },
   settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
