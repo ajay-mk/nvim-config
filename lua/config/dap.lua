@@ -1,7 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-local codelldb_path = vim.fn.expand("~/.local/share/nvim/codelldb/extension/adapter/codelldb")
+local codelldb_path = vim.fn.stdpath("data") .. "/codelldb/extension/adapter/codelldb"
 
 dap.adapters.codelldb = {
   type = "server",

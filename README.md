@@ -26,6 +26,7 @@ lua/config/
   files.lua       # nvim-tree
   git.lua         # gitsigns, lazygit
   cmake.lua       # cmake-tools
+  dap.lua         # nvim-dap + codelldb debugging
   keymaps.lua     # keybindings
   which-key.lua   # keymap hints
   precommit.lua   # pre-commit integration
@@ -35,14 +36,14 @@ lua/config/
 
 ## Dependencies
 
-External tools expected on `$PATH`:
+External tools:
 
-- `clangd` — C/C++ LSP
-- `lua-language-server` — Lua LSP
-- `fzf` — fuzzy finder backend
-- `lazygit` — git UI (optional)
-- `pre-commit` — if using the pre-commit integration
-- [`codelldb`](https://github.com/vadimcn/codelldb) — C/C++ debug adapter; download the `codelldb-darwin-arm64.vsix` release asset and extract it to `~/.local/share/nvim/codelldb/` (binary ends up at `extension/adapter/codelldb`)
+- `clangd` — C/C++ LSP (on `$PATH`)
+- `lua-language-server` — Lua LSP (on `$PATH`)
+- `fzf` — fuzzy finder backend (on `$PATH`)
+- `lazygit` — git UI (optional, on `$PATH`)
+- `pre-commit` — if using the pre-commit integration (on `$PATH`)
+- [`codelldb`](https://github.com/vadimcn/codelldb) — C/C++ debug adapter, macOS arm64 only; not on `$PATH`. Download the `codelldb-darwin-arm64.vsix` release asset and extract it to `~/.local/share/nvim/codelldb/` (binary ends up at `extension/adapter/codelldb`)
 
 See [KEYBINDINGS.md](KEYBINDINGS.md) for the keymap reference.
 
