@@ -77,5 +77,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>cf", function() vim.lsp.buf.format({ async = false, timeout_ms = 2000 }) end, "Format buffer")
     map("<leader>cr", vim.lsp.buf.rename, "Rename symbol")
     map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+    map("<leader>ci", function() require("fzf-lua").lsp_incoming_calls() end, "Incoming calls (callers)")
+    map("<leader>co", function() require("fzf-lua").lsp_outgoing_calls() end, "Outgoing calls (callees)")
+    map("<leader>cs", function() require("fzf-lua").lsp_type_sub() end, "Type hierarchy: subtypes")
+    map("<leader>cS", function() require("fzf-lua").lsp_type_super() end, "Type hierarchy: supertypes")
   end,
 })
